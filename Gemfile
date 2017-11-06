@@ -8,6 +8,11 @@ gem 'rails-i18n'
 #Manage Procfile-based applications
 gem 'foreman'
 
+#Flexible authentication solution for Rails with Warden
+gem 'devise'
+
+#Translations for the devise gem
+gem 'devise-i18n'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
