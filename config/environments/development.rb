@@ -45,4 +45,8 @@ Rails.application.configure do
 
   #Devise - Email
   config.action_mailer.default_url_options = { host:'localhost', port: 3000}
+
+  #Foreman - Fix
+  $stdout.sync = true
+
 end
