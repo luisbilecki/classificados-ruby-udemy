@@ -14,7 +14,6 @@ gem 'devise'
 #Translations for the devise gem
 gem 'devise-i18n'
 
-
 gem 'rails-assets-bootstrap', source: 'https://rails-assets.org'
 
 # Use sqlite3 as the database for Active Record
