@@ -17,6 +17,9 @@ gem 'devise-i18n'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 
+#Rails gem of the Bootstrap based admin theme SB Admin 2.
+gem 'bootstrap_sb_admin_base_v2'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
