@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'rails-assets-bootstrap', source: 'https://rails-assets.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
