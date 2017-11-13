@@ -5,8 +5,6 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.5'
 gem 'rails-i18n'
 
-#Notify JS
-gem 'rails-assets-notifyjs', source: 'https://rails-assets.org'
 
 #Manage Procfile-based applications
 gem 'foreman'
@@ -17,7 +15,14 @@ gem 'devise'
 #Translations for the devise gem
 gem 'devise-i18n'
 
-gem 'rails-assets-bootstrap', source: 'https://rails-assets.org'
+source 'https://rails-assets.org' do
+  #NotifyJS
+  gem 'rails-assets-notifyjs'
+  #Bootstrap
+  gem 'rails-assets-bootstrap'
+  #Bootbox
+  gem 'rails-assets-bootbox'
+end
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
@@ -71,5 +76,8 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  #A library for generating fake data such as names, addresses, and phone numbers.
+  gem 'faker'
 end
 
