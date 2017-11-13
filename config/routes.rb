@@ -5,13 +5,14 @@ Rails.application.routes.draw do
     #cria rotas
     resources :categories, except: [:show]
     get 'dashboard', to: 'dashboard#index'
+    get 'admins/index'
   end
 
   namespace :site do
     get 'home', to: 'home#index'
   end
 
-  devise_for :admins
+  devise_for :admins, :skip => [:registrations]
   devise_for :members
 
   #Página inicial
