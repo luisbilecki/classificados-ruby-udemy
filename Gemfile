@@ -5,6 +5,9 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.5'
 gem 'rails-i18n'
 
+#Notify JS
+gem 'rails-assets-notifyjs', source: 'https://rails-assets.org'
+
 #Manage Procfile-based applications
 gem 'foreman'
 
