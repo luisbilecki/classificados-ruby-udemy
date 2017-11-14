@@ -1,4 +1,11 @@
 class ApplicationController < ActionController::Base
+  # It uses pundit for authorization methods
+  include Pundit
+
+  # Manages pundit errors
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+
+  # Set Layout
   layout :layout_by_resource
 
   # Prevent CSRF attacks by raising an exception.
@@ -17,4 +24,8 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def user_not_authorized
+      flash[:alert] = t('messages.not_authorized')
+      redirect_to(request.referrer || root_path)
+    end
 end
