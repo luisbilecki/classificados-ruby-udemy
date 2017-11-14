@@ -1,4 +1,4 @@
-<h1 class="page-header">Categorias</h1>
+<h1 class="page-header"><%= @categories.model_name.human(count: 2) %></h1>
 <% if @category.errors.any? %>
 <div class="alert alert-danger alert-dismissable">
     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
