@@ -1,8 +1,12 @@
 class Admin < ActiveRecord::Base
-  enum role: [ :full_access , :restricted_access ]
+  # Constants
+  ROLES = {:full_access => 0 , :restricted_access => 1}
+  # Enums
+  enum role: ROLES
 
-  #Criar escopo usando o lambda
-  scope :with_full_access, -> { where(role: 'full_access') }
+  # Scopes
+  scope :with_full_access, -> { where(role: ROLES[:full_access]) }
+  scope :with_restricted_access, -> { where(role: ROLES[:restricted_access]) }
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
