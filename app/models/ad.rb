@@ -9,4 +9,7 @@ class Ad < ActiveRecord::Base
 
   # gem money-rails
   monetize :price_cents
+
+  # Scopes
+  scope :last_six, -> { limit(6).order(created_at: :desc) }
 end
