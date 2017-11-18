@@ -8,5 +8,5 @@ $(function(){
   $('#message-text').val('<%=  %>');
 
   // Sends a notification
-  $.notify('O email foi enviado com sucesso!', 'success');
+  $.notify('<%= @notify_message %>', '<%= @notify_flag %>');
 });
