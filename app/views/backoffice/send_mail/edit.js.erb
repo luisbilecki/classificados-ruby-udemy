@@ -1,11 +1,18 @@
 //alert("<%= @admin.email %>");
 //garante que a página vai ser carregada por completo
 $(function(){
-  $('#recipient-name').val('<%= @admin.email %>');
+  let $sendMailModal = $('#sendMailModal');
+
+  // Setting data on Form
+  $('#recipient-text').val('<%= @admin.email %>');
   $('h4.modal-title').text('Enviar mensagem para ' + '<%= @admin.name %>');
-  $('#sendMailModal').modal();
-  $('#sendMailModal').on('shown.bs.modal', function(){
-      $('#message-text').focus();
+
+  // Shows modal
+  $sendMailModal.modal();
+
+  // Set focus on 'Subject' after modal is shown
+  $sendMailModal.on('shown.bs.modal', function(){
+      $('#subject-text').focus();
   })
 
 });

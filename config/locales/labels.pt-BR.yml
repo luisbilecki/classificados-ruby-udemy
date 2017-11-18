@@ -1,0 +1,10 @@
+'pt-BR':
+  labels:
+    subject: Assunto
+    recipient: Destinatário
+    message: Mensagem
+    close: Fechar
+    send: Enviar
+    title: Enviar mensagem
+    title2: Enviar mensagem para
+

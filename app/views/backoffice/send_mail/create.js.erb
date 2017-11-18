@@ -1,0 +1,12 @@
+
+$(function(){
+  let $sendMailModal = $('#sendMailModal');
+
+  // Closes the modal form
+  $sendMailModal.modal('hide');
+  $('#subject-text').val('<%=  %>');
+  $('#message-text').val('<%=  %>');
+
+  // Sends a notification
+  $.notify('O email foi enviado com sucesso!', 'success');
+});
