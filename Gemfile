@@ -20,6 +20,9 @@ gem 'devise'
 #Translations for the devise gem
 gem 'devise-i18n'
 
+#Integration of RubyMoney - Money with Rails
+gem 'money-rails', '~>1'
+
 source 'https://rails-assets.org' do
   #NotifyJS
   gem 'rails-assets-notifyjs'
