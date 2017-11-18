@@ -23,6 +23,9 @@ gem 'devise-i18n'
 #Integration of RubyMoney - Money with Rails
 gem 'money-rails', '~>1'
 
+#Easy file attachment management for ActiveRecord
+gem 'paperclip', '~>5.0.0'
+
 source 'https://rails-assets.org' do
   #NotifyJS
   gem 'rails-assets-notifyjs'
