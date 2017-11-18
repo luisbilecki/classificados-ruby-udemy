@@ -46,7 +46,8 @@ class Backoffice::AdminsController < BackofficeController
 
     if @admin.save
       #mandar para listagem de categorias
-      redirect_to backoffice_admins_path, notice: "O administrador (#{@admin.email}) foi cadastrado com sucesso!"
+      redirect_to backoffice_admins_path,
+        notice: "O administrador (#{@admin.email}) foi cadastrado com sucesso!"
     else
       #ficar na mesma página
       render :new
@@ -62,9 +63,14 @@ class Backoffice::AdminsController < BackofficeController
   end
 
   def params_admin
-    if params[:admin][:password].blank? && params[:admin][:password_confirmation].blank?
+    if password_blank?
       params[:admin].except!(:password, :password_confirmation)
     end
     params.require(:admin).permit(policy(@admin).permitted_attributes)
+  end
+
+  def password_blank?
+    params[:admin][:password].blank? &&
+    params[:admin][:password_confirmation].blank?
   end
 end
