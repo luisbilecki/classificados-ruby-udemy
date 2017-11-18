@@ -8,13 +8,16 @@ namespace :utils do
                     email: Faker::Internet.email,
                     password: "123456",
                     password_confirmation: "123456",
-                    role: [0,1].sample)
+                    role: [0,0,1,1,1].sample)
     end
 
     puts "Administradores criados!"
 
   end
 
+
+#################################################################
+#
   desc "Cria Anúncios Fake"
   task generate_ads: :environment do
     puts "Cadastrando ANÚNCIOS..."
@@ -24,7 +27,7 @@ namespace :utils do
         title: Faker::Lorem.sentence([2,3,4,5].sample),
         description: LeroleroGenerator.paragraph(Random.rand(3)),
         member: Member.all.sample,
-        caregory: Category.all.sample
+        category: Category.all.sample
       )
     end
 
