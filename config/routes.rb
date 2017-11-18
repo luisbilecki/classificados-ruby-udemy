@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     #cria rotas
     resources :categories, except: [:show, :destroy]
     resources :admins, except: [:show]
+    resources :send_mail, only: [:edit, :create]
     get 'dashboard', to: 'dashboard#index'
   end
 
