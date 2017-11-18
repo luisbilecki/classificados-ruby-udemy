@@ -74,6 +74,9 @@ group :development, :test do
 
   #Generate Entity-Relationship Diagrams for Rails applications
   gem 'rails-erd'
+  
+  #Mailcatcher
+  gem 'mailcatcher'
 
 end
 

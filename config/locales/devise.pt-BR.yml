@@ -1,0 +1,8 @@
+'pt-BR':
+  devise:
+    signin: Identifique-se
+    remember: Lembrar-se de mim
+    password: Senha
+    login: Entrar
+    forgot: Esqueceu sua senha?
+    

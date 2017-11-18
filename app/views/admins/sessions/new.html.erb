@@ -3,7 +3,7 @@
         <div class="col-md-4 col-md-offset-4">
             <div class="login-panel panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Please Sign In</h3>
+                    <h3 class="panel-title"><%= t('devise.signin') %></h3>
                 </div>
                 <div class="panel-body">
                     <%= form_for(resource, as: resource_name, url: session_path(resource_name, role: "form")) do |f| %>
@@ -12,16 +12,15 @@
                               <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "E-mail", type: "email", autofocus: "autofocus" %>
                             </div>
                             <div class="form-group">
-                                <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Password", type: "password" %>
+                                <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "#{t('devise.password')}", type: "password" %>
                             </div>
                             <div class="checkbox">
                                 <label>
-                                  <%= f.check_box :remember_me %>Remember me
+                                  <%= f.check_box :remember_me %><%= t('devise.remember') %>
                                 </label>
                             </div>
 
-
-                            <%= f.submit "Login", class: "btn btn-lg btn-success btn-block" %>
+                            <%= f.submit "#{t('devise.login')}", class: "btn btn-lg btn-success btn-block" %>
                             <%= render "admins/shared/links" %>
                         </fieldset>
                     <% end %>
@@ -31,3 +30,8 @@
     </div>
 </div>
 
+<% flash.each do |key, value| %>
+    <script>
+        $.notify("<%= value %>", "info");
+    </script>
+<% end %>
