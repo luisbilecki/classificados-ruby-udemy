@@ -3,7 +3,9 @@ class Ad < ActiveRecord::Base
   belongs_to :member
 
   #validates
-  validates_presence_of :title, :description, :category, :price, :picture
+  validates :title, :description, :category, :picture, presence: true
+  validates :finish_date, presence: true
+  validates :price , numericality: { greater_than: 0 }
 
   # paperclip
   has_attached_file :picture, styles: { medium: "320x150#", thumb: "100x100>" },
