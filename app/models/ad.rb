@@ -2,6 +2,9 @@ class Ad < ActiveRecord::Base
   belongs_to :category
   belongs_to :member
 
+  #validates
+  validates_presence_of :title, :description, :category, :price, :picture
+
   # paperclip
   has_attached_file :picture, styles: { medium: "320x150#", thumb: "100x100>" },
                                    default_url: "/images/:style/missing.png"

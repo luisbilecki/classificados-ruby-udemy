@@ -5,6 +5,24 @@ class Site::Profile::AdsController < Site::ProfileController
     @ads = Ad.ads_to_cm(current_member)
   end
 
+  def new
+    @ad = Ad.new
+    @ad.price = 0
+    @ad
+  end
+
+  def create
+    @ad = Ad.new(params_ad)
+    @ad.member = current_member
+
+    if @ad.save
+      redirect_to site_profile_ads_path, notice: "Anúncio cadastrado com sucesso!"
+    else
+      render :new
+    end
+
+  end
+
   def edit
     # set ad via before action
   end
