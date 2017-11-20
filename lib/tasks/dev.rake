@@ -1,4 +1,4 @@
-namespace :utils do
+namespace :dev do
 
   desc "Setup development"
   task setup_dev: :environment do
@@ -12,9 +12,9 @@ namespace :utils do
     puts "Creating DB... #{%x(rake db:create)}"
     puts %x(rake db:migrate)
     puts %x(rake db:seed)
-    puts %x(rake utils:generate_admins)
-    puts %x(rake utils:generate_members)
-    puts %x(rake utils:generate_ads)
+    puts %x(rake dev:generate_admins)
+    puts %x(rake dev:generate_members)
+    puts %x(rake dev:generate_ads)
 
     puts "Task completed successfully"
 
@@ -58,6 +58,17 @@ namespace :utils do
   desc "Cria Anúncios Fake"
   task generate_ads: :environment do
     puts "Cadastrando ANÚNCIOS..."
+
+    5.times do
+      Ad.create!(
+        title: Faker::Lorem.sentence([2,3,4,5].sample),
+        description: LeroleroGenerator.paragraph(Random.rand(3)),
+        member: Member.first,
+        category: Category.all.sample,
+        price: "#{Random.rand(500)},#{Random.rand(99)}",
+        picture: File.new(Rails.root.join('public','templates','images-for-ads',"#{Random.rand(9)}.jpg"), 'r')
+      )
+    end
 
     100.times do
       Ad.create!(
