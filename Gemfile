@@ -5,6 +5,9 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.5'
 gem 'rails-i18n'
 
+#JQuery UI Rails
+gem 'jquery-ui-rails'
+
 #Help ActiveRecord::Enum feature to work fine with I18n and simple_form.
 gem 'enum_help'
 
