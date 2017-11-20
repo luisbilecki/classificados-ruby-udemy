@@ -37,3 +37,14 @@ Admin.create!(name: "Admin",
 
 
 puts "ADMINISTRADOR cadastrado com sucesso!"
+
+##########################################
+
+puts "Cadastrando o MEMBRO padrão..."
+
+Member.create!(email: "member@member.com",
+              password: "123456",
+              password_confirmation: "123456")
+
+
+puts "MEMBRO cadastrado com sucesso!"
