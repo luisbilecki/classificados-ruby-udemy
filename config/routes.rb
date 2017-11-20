@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
     namespace :profile do
       resources :dashboard, only: [ :index ]
-      resources :ads, only: [ :index ]
+      resources :ads, only: [ :index, :edit, :update ]
     end
   end
 
