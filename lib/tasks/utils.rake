@@ -2,9 +2,13 @@ namespace :utils do
 
   desc "Setup development"
   task setup_dev: :environment do
+  images_path = Rails.root.join('public','system')
+
     puts "Running setup development task ..."
 
     puts "Dropping DB... #{%x(rake db:drop)}"
+    puts "Erasing images from public folder ...#{%x(rm -rf #{images_path})}"
+
     puts "Creating DB... #{%x(rake db:create)}"
     puts %x(rake db:migrate)
     puts %x(rake db:seed)
