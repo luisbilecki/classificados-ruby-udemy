@@ -1,6 +1,6 @@
 class Ad < ActiveRecord::Base
   #Associations
-  belongs_to :category
+  belongs_to :category, counter_cache: true
   belongs_to :member
 
   #Callbacks

@@ -1,4 +1,8 @@
 class Category < ActiveRecord::Base
+  # Associations
+  has_many :ads
+
+  # Validations
   validates_presence_of :description
 
   # Scopes
