@@ -1,4 +1,8 @@
 class Category < ActiveRecord::Base
+  # Gem FriendlyId
+  include FriendlyId
+  friendly_id :description, use: :slugged
+
   # Associations
   has_many :ads
 
@@ -7,4 +11,11 @@ class Category < ActiveRecord::Base
 
   # Scopes
   scope :order_by_description, -> { order(:description) }
+
+  '''
+  def to_param
+    "#{id} #{description}".parameterize
+  end
+  '''
+
 end

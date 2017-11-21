@@ -32,6 +32,9 @@ gem 'paperclip', '~>5.0.0'
 #Redcarpet - Markdown
 gem 'redcarpet'
 
+#FriendlyId is the “Swiss Army bulldozer” of slugging and permalink plugins for ActiveRecord.
+gem 'friendly_id', '~> 5.1.0'
+
 source 'https://rails-assets.org' do
   #Bootstrap notify
   gem 'rails-assets-bootstrap.growl'
