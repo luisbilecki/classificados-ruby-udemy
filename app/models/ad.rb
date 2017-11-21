@@ -1,9 +1,13 @@
 class Ad < ActiveRecord::Base
+  #Associations
   belongs_to :category
   belongs_to :member
 
+  #Callbacks
+  before_save :md_to_html
+
   #validates
-  validates :title, :description, :category, :picture, presence: true
+  validates :title, :description_short, :description_md, :category, :picture, presence: true
   validates :finish_date, presence: true
   validates :price , numericality: { greater_than: 0 }
 
@@ -18,6 +22,28 @@ class Ad < ActiveRecord::Base
   # Scopes
   scope :descending_order, -> (qtd = 10) { limit(qtd).order(created_at: :desc) }
   scope :ads_to_cm, -> (member) { where(member: member) }
+
+  private
+
+    def md_to_html
+      options = {
+          filter_html: true,
+          link_attributes: {
+            rel: "nofollow",
+            target: "_blank"
+          }
+      }
+
+      extensions = {
+        space_after_headers: true,
+        autolink: true
+      }
+
+      renderer = Redcarpet::Render::HTML.new(options)
+      markdown = Redcarpet::Markdown.new(renderer, extensions)
+
+      self.description = markdown.render(self.description_md)
+    end
 
 
 end
