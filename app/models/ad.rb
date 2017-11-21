@@ -22,6 +22,7 @@ class Ad < ActiveRecord::Base
   # Scopes
   scope :descending_order, -> (qtd = 10) { limit(qtd).order(created_at: :desc) }
   scope :ads_to_cm, -> (member) { where(member: member) }
+  scope :where_category, -> (id) { where(category: id)}
 
   private
 
