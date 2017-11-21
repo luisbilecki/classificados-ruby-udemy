@@ -30,12 +30,14 @@ gem 'money-rails', '~>1'
 gem 'paperclip', '~>5.0.0'
 
 source 'https://rails-assets.org' do
-  #NotifyJS
-  gem 'rails-assets-notifyjs'
+  #Bootstrap notify
+  gem 'rails-assets-bootstrap.growl'
   #Bootstrap
   gem 'rails-assets-bootstrap'
   #Bootbox
   gem 'rails-assets-bootbox'
+  #AnimateCSS
+  gem 'rails-assets-animatecss'
 end
 
 # Use sqlite3 as the database for Active Record
