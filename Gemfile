@@ -29,6 +29,9 @@ gem 'money-rails', '~>1'
 #Easy file attachment management for ActiveRecord
 gem 'paperclip', '~>5.0.0'
 
+#Redcarpet - Markdown
+gem 'redcarpet'
+
 source 'https://rails-assets.org' do
   #Bootstrap notify
   gem 'rails-assets-bootstrap.growl'
