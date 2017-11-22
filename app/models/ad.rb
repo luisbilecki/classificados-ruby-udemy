@@ -3,6 +3,9 @@ class Ad < ActiveRecord::Base
   belongs_to :category, counter_cache: true
   belongs_to :member
 
+  #Constants
+  QTT_PER_PAGE = 6
+
   #Callbacks
   before_save :md_to_html
 
@@ -20,14 +23,13 @@ class Ad < ActiveRecord::Base
   monetize :price_cents
 
   # Scopes
-  scope :descending_order, -> (qtd = 10, page = 1) {
-                        limit(qtd).order(created_at: :desc).page(page).per(6) }
+  scope :descending_order, -> ( page ) { page(page).per(QTT_PER_PAGE) }
 
   scope :ads_to_cm, -> (member) { where(member: member) }
-  scope :by_category, -> (id, page = 1) { where(category: id).page(page).per(6) }
+  scope :by_category, -> (id, page) { where(category: id).page(page).per(QTT_PER_PAGE) }
 
-  scope :search, -> (q, page = 1) {where("lower(title) LIKE ?", "%#{q.downcase}%"
-                    ).page(page).per(6)}
+  scope :search, -> (q, page) {where("lower(title) LIKE ?", "%#{q.downcase}%"
+                    ).page(page).per(QTT_PER_PAGE)}
 
   private
 

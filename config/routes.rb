@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :categories, except: [:show, :destroy]
     resources :admins, except: [:show]
     resources :send_mail, only: [:edit, :create]
+    resources :diagrams, only: [:index]
     resources :dashboard, only: [:index]
   end
 
