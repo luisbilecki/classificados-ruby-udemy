@@ -14,6 +14,10 @@ gem 'enum_help'
 #Minimal authorization through OO design and pure Ruby classes
 gem 'pundit'
 
+# A Scope & Engine based, clean, powerful, customizable and sophisticated paginator for Ruby webapps
+gem 'kaminari'
+gem 'kaminari-i18n'
+
 #Manage Procfile-based applications
 gem 'foreman'
 
