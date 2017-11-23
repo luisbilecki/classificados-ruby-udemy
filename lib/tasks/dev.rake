@@ -59,19 +59,26 @@ namespace :dev do
 
 #################################################################
 #
-  desc "Criar membros fake"
+desc "Cria Membros Fake"
   task generate_members: :environment do
-    10.times do
-      puts "Cadastrando membro..."
+    puts "Cadastrando MEMBROS..."
 
-      Member.create!(email: Faker::Internet.email,
-                    password: "123456",
-                    password_confirmation: "123456")
+    100.times do
+      member = Member.new(
+        email: Faker::Internet.email,
+        password: "123456",
+        password_confirmation: "123456"
+      )
+      member.build_profile_member
+
+      member.profile_member.first_name = Faker::Name.first_name
+      member.profile_member.second_name = Faker::Name.last_name
+
+      member.save!
     end
 
-    puts "Membros criados!"
-
-  end
+    puts "MEMBROS cadastrados com sucesso!"
+end
 #################################################################
 #
   desc "Cria Anúncios Fake"
