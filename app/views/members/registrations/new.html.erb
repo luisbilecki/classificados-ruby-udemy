@@ -1,4 +1,6 @@
 <div class="container">
+
+
         <div id="signupbox" style="margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
                     <div class="panel panel-info">
                         <div class="panel-heading">
@@ -18,36 +20,45 @@
                                 <div class="form-group">
                                     <%= f.label :email, class:"col-md-3 control-label" %>
                                     <div class="col-md-9">
-                                        <%= f.email_field :email, autofocus: true, class:"form-control", placeholder:"Email" %>
+                                        <%= f.email_field :email, autofocus: true, class:"form-control", placeholder:"Email Address" %>
                                     </div>
                                 </div>
 
-                                <div class="form-group">
-                                    <label for="firstname" class="col-md-3 control-label">First Name</label>
-                                    <div class="col-md-9">
-                                        <input type="text" class="form-control" name="firstname" placeholder="Nome">
+                                <%= f.fields_for :profile_member do |profile_fields| %>
+                                    <div class="form-group">
+                                        <%= profile_fields.label :first_name, class:"col-md-3 control-label" %>
+                                        <div class="col-md-9">
+                                            <%= profile_fields.text_field :first_name, class:"form-control" %>
+                                        </div>
                                     </div>
-                                </div>
+
+                                    <div class="form-group">
+                                        <%= profile_fields.label :second_name, class:"col-md-3 control-label" %>
+                                        <div class="col-md-9">
+                                            <%= profile_fields.text_field :second_name, class:"form-control" %>
+                                        </div>
+                                    </div>
+                                <% end %>
 
                                 <div class="form-group">
                                     <%= f.label :password, class:"col-md-3 control-label" %>
                                     <div class="col-md-9">
-                                        <%= f.password_field :password, autocomplete: "off", class:"form-control", placeholder:"Senha" %>
+                                        <%= f.password_field :password, autocomplete: "off", class:"form-control", placeholder:"Password" %>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <%= f.label :password_confirmation, class:"col-md-3 control-label" %>
                                     <div class="col-md-9">
-                                        <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control", placeholder:"Confirmação da Senha" %>
+                                        <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control", placeholder:"Password Confirmation" %>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <!-- Button -->
                                     <div class="col-md-offset-3 col-md-9">
-                                        <%= f.submit "Enviar", class: "btn btn-info" do %>
-                                          <i class="icon-hand-right"></i> &nbsp Enviar
+                                        <%= f.submit "Sign up", class: "btn btn-info" do %>
+                                          <i class="icon-hand-right"></i> &nbsp Sign Up
                                         <% end %>
                                     </div>
 
@@ -62,3 +73,4 @@
 
          </div>
     </div>
+

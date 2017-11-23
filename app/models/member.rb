@@ -1,4 +1,5 @@
 class Member < ActiveRecord::Base
+
   # Assocations
   has_many :ads
   has_one :profile_member
@@ -10,4 +11,5 @@ class Member < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  accepts_nested_attributes_for :profile_member
 end
