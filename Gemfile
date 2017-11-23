@@ -27,6 +27,9 @@ gem 'devise'
 #Translations for the devise gem
 gem 'devise-i18n'
 
+#A Ruby Gem that wraps the functionality of jQuery Raty library, and provides optional IMDB style rating.
+gem 'ratyrate'
+
 #Integration of RubyMoney - Money with Rails
 gem 'money-rails', '~>1'
 

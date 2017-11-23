@@ -1,4 +1,7 @@
 class Ad < ActiveRecord::Base
+  #RatyRate
+  ratyrate_rateable 'quality'
+
   #Associations
   belongs_to :category, counter_cache: true
   belongs_to :member
