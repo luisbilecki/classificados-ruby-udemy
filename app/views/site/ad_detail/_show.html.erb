@@ -11,7 +11,7 @@
 
 <div class="well well-sm">
     <div class="ratings">
-        <p class="pull-right">
+
         <%
             if @ad.rates("quality").count == 1
                 texto = "avaliação"
@@ -19,12 +19,15 @@
                 texto = "avaliações"
             end
          %>
-         <%= "#{@ad.rates("quality").count} #{texto}" %>
+        <div class="row">
+             <div class="pull-left">
+                 <%= rating_for @ad, 'quality'%>
+             </div>
 
-         </p>
-        <p>
-            <%= rating_for @ad, 'quality'%>
-        </p>
+             <div class="pull-right">
+                <%= "#{@ad.rates("quality").count} #{texto}" %>
+             </div>
+        </div>
     </div>
 </div>
 
