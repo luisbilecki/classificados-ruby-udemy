@@ -10,7 +10,19 @@
                 <p><%= ad.description_short %></p>
             </div>
             <div class="ratings" style="padding: 5px;">
-                    <%= rating_for ad, 'quality'%>
+
+                    <%
+                        if ad.rates("quality").count == 1
+                            texto = "avaliação"
+                        else
+                            texto = "avaliações"
+                        end
+                     %>
+                     <p class="pull-right">
+                        <%= "#{ad.rates("quality").count} #{texto}" %>
+                     </p>
+
+                     <%= rating_for ad, 'quality'%>
             </div>
         </div>
     </div>

@@ -41,6 +41,9 @@
                 <li>
                     <%= link_to "Novo anúncio",   new_site_profile_ad_path   %>
                 </li>
+                <li>
+                    <%= link_to "Meus dados",   edit_site_profile_my_datum_path(current_member.id)  %>
+                </li>
             </ul>
         </div>
         <!-- /#sidebar-wrapper -->
