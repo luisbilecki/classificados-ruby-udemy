@@ -19,15 +19,11 @@
                 texto = "avaliações"
             end
          %>
-        <div class="row">
-             <div class="pull-left">
-                 <%= rating_for @ad, 'quality'%>
-             </div>
+         <p class="pull-right">
+            <%= "#{@ad.rates("quality").count} #{texto}" %>
+         </p>
 
-             <div class="pull-right">
-                <%= "#{@ad.rates("quality").count} #{texto}" %>
-             </div>
-        </div>
+         <%= rating_for @ad, 'quality'%>
     </div>
 </div>
 
