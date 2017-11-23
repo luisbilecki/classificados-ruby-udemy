@@ -7,8 +7,21 @@
         </h4>
         <p><%= @ad.description.html_safe %></p>
     </div>
+</div>
+
+<div class="well well-sm">
     <div class="ratings">
-        <p class="pull-right">3 reviews</p>
+        <p class="pull-right">
+        <%
+            if @ad.rates("quality").count == 1
+                texto = "avaliação"
+            else
+                texto = "avaliações"
+            end
+         %>
+         <%= "#{@ad.rates("quality").count} #{texto}" %>
+
+         </p>
         <p>
             <%= rating_for @ad, 'quality'%>
         </p>
@@ -24,10 +37,7 @@
                 Deixe um comentário
             </button>
         <% else %>
-            <button type="button" class="btn btn-success" data-toggle="modal"
-                        data-target="#commentModal" disabled="disabled">
-                Efetue <i>login</i> para comentar
-            </button>
+            <%= link_to "Efetue login para comentar", new_member_session_path, class: "btn btn-success" %>
         <% end %>
     </div>
 
