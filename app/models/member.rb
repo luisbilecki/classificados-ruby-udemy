@@ -1,6 +1,7 @@
 class Member < ActiveRecord::Base
   # Assocations
   has_many :ads
+  has_one :profile_member
 
   # Gem RatyRate
   ratyrate_rater

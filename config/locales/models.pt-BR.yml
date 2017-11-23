@@ -1,4 +1,9 @@
 'pt-BR':
+  helpers:
+    label:
+      member[profile_member_attributes]:
+        first_name: Primeiro Nome
+        second_name: Segundo Nome
   activerecord:
     models:
       member:
@@ -13,6 +18,9 @@
       ad:
         one: Anúncio
         other: Anúncios
+      profile_member:
+        one: Perfil
+        other: Perfil
     attributes:
       member:
         id: Código
@@ -47,5 +55,13 @@
         category_id: Código da categoria
         category: Categoria
         finish_date: Data de finalização
-        picture: Imagem
+        image: Imagem
         price: Preço
+      profile_member:
+        id: Código
+        created_at: Criado em
+        updated_at: Atualizado em
+        first_name: Primeiro nome
+        second_name: Segundo nome
+        birthdate: Data de nascimento
+
