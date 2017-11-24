@@ -3,6 +3,12 @@
 
     <div class="caption-full">
         <h4 class="pull-right"><%= humanized_money_with_symbol @ad.price %></h4>
+        <% if member_signed_in? %>
+            <%= link_to "Comprar", '#', class: "btn btn-success" %>
+        <% else %>
+            <%= link_to "Efetue login para comprar", new_member_session_path, class: "btn btn-success" %>
+        <% end %>
+
         <h4><a href="#"><%= @ad.title %></a>
         </h4>
         <p><%= @ad.description.html_safe %></p>
