@@ -34,6 +34,15 @@ class Ad < ActiveRecord::Base
 
   scope :search, -> (q, page) {where("lower(title) LIKE ?", "%#{q.downcase}%"
                     ).page(page).per(QTT_PER_PAGE)}
+  scope :random, ->(quantity) { limit(quantity).order("RANDOM()") }
+
+  def second
+    self[1]
+  end
+
+  def third
+    self[2]
+  end
 
   private
 
