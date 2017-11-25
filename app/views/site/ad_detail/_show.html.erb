@@ -1,56 +1,57 @@
 <div class="thumbnail">
-    <%= image_tag @ad.picture.url(:large), class: "img-responsive" %>
+    <%= image_tag @ad.picture.url(:large), class:"img-responsive" %>
 
     <div class="caption-full">
         <h4 class="pull-right"><%= humanized_money_with_symbol @ad.price %></h4>
-        <% if member_signed_in? %>
-            <%= link_to "Comprar", '#', class: "btn btn-success" %>
+
+        <% if @ad.active? %>
+          <% if member_signed_in? %>
+                <%= form_tag(checkout_payments_path) do %>
+                  <%= hidden_field_tag :ad_id, @ad.id %>
+                  <%= submit_tag "Comprar", class:"btn btn-success", data: { confirm: "Deseja realmente comprar esse produto?"}%>
+                <% end %>
+          <% else %>
+                <%= link_to "Efetue login para comprar", new_member_session_path, class:"btn btn-success" %>
+          <% end %>
         <% else %>
-            <%= link_to "Efetue login para comprar", new_member_session_path, class: "btn btn-success" %>
+          <div class="text-right">
+            <%= link_to "#{@ad.status_i18n}", '#', class:"btn btn-success", disabled: true %>
+          </div>
         <% end %>
 
         <h4><a href="#"><%= @ad.title %></a>
         </h4>
-        <p><%= @ad.description.html_safe %></p>
+        <%= @ad.description.html_safe %>
     </div>
 </div>
+
 
 <div class="well well-sm">
     <div class="ratings">
-
-        <%
-            if @ad.rates("quality").count == 1
-                texto = "avaliação"
-            else
-                texto = "avaliações"
-            end
-         %>
-         <p class="pull-right">
-            <%= "#{@ad.rates("quality").count} #{texto}" %>
-         </p>
-
-         <%= rating_for @ad, 'quality'%>
+        <p class="pull-right"><%= @ad.rates('quality').count %> <%= t('labels.reviews') %></p>
+        <%= rating_for @ad, 'quality', star_path: '/images/ratyrate' %>
     </div>
 </div>
 
+
 <div class="well">
 
-    <div class="text-right">
-        <% if member_signed_in? %>
-            <button type="button" class="btn btn-success" data-toggle="modal"
-                                                    data-target="#commentModal">
-                Deixe um comentário
-            </button>
-        <% else %>
-            <%= link_to "Efetue login para comentar", new_member_session_path, class: "btn btn-success" %>
-        <% end %>
-    </div>
+    <% if member_signed_in? %>
+      <div class="text-right">
+          <button type="button" class="btn btn-success" data-toggle="modal" data-target="#commentModal">
+            <%= t('labels.let_your_comment') %>
+          </button>
+      </div>
+    <% else %>
+      <div class="text-right">
+          <%= link_to "#{t('labels.login_to_comment')}", new_member_session_path, class:"btn btn-success" %>
+      </div>
+    <% end %>
 
     <hr>
 
     <%= render partial: 'site/ad_detail/comments' %>
+
 </div>
 
-<!-- Modal -->
 <%= render partial: 'site/ad_detail/comment_modal' %>
-

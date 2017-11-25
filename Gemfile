@@ -8,8 +8,14 @@ gem 'rails-i18n'
 #JQuery UI Rails
 gem 'jquery-ui-rails'
 
+gem "pagseguro-oficial", "~> 2.5.0"
+
+# Rack Middleware for handling Cross-Origin Resource Sharing (CORS), which makes cross-origin AJAX possible.
+gem 'rack-cors', :require => 'rack/cors'
+
 #Help ActiveRecord::Enum feature to work fine with I18n and simple_form.
 gem 'enum_help'
+gem 'prawn-rails'
 
 #Minimal authorization through OO design and pure Ruby classes
 gem 'pundit'
@@ -38,6 +44,7 @@ gem 'paperclip', '~>5.0.0'
 
 #Redcarpet - Markdown
 gem 'redcarpet'
+gem "chartkick"
 
 #FriendlyId is the “Swiss Army bulldozer” of slugging and permalink plugins for ActiveRecord.
 gem 'friendly_id', '~> 5.1.0'

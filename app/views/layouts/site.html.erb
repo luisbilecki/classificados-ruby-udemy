@@ -41,8 +41,7 @@
                     <div class="row">
                       <div class="col-lg-6">
                         <div class="input-group">
-                          <%= text_field_tag(:q, params[:q], { class:"form-control", placeholder:"Pesquisar por..." }) %>
-
+                          <%= text_field_tag(:q, params[:q], { class:"form-control",placeholder: "#{cookies[:search_term] ? cookies[:search_term] : 'Pesquisar...'}" }) %>
                           <span class="input-group-btn">
                             <%= submit_tag("Pesquisar", class: "btn btn-default") %>
                           </span>
